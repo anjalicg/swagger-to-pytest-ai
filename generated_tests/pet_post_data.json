@@ -1,0 +1,115 @@
+[
+  {
+    "test_name": "test_add_pet_valid_minimal",
+    "payload": {
+      "name": "doggie",
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ]
+    },
+    "expected_status": 200
+  },
+  {
+    "test_name": "test_add_pet_missing_name",
+    "payload": {
+      "id": 1,
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ]
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_missing_photo_urls",
+    "payload": {
+      "id": 1,
+      "name": "doggie"
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_empty_payload",
+    "payload": {},
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_null_name",
+    "payload": {
+      "name": null,
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ]
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_empty_string_name",
+    "payload": {
+      "name": "",
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ]
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_null_photo_urls",
+    "payload": {
+      "name": "doggie",
+      "photoUrls": null
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_empty_photo_urls_array",
+    "payload": {
+      "name": "doggie",
+      "photoUrls": []
+    },
+    "expected_status": 200
+  },
+  {
+    "test_name": "test_add_pet_invalid_id_type_string",
+    "payload": {
+      "id": "not-an-integer",
+      "name": "doggie",
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ]
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_negative_id",
+    "payload": {
+      "id": -1,
+      "name": "doggie",
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ]
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_integer_overflow_id",
+    "payload": {
+      "id": 9223372036854775808,
+      "name": "doggie",
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ]
+    },
+    "expected_status": 405
+  },
+  {
+    "test_name": "test_add_pet_invalid_status_enum",
+    "payload": {
+      "name": "doggie",
+      "photoUrls": [
+        "https://example.com/photo.jpg"
+      ],
+      "status": "invalid_status_value"
+    },
+    "expected_status": 405
+  }
+]
